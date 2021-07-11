@@ -53,7 +53,6 @@ SpeechRecognition==3.8.1
 SQLAlchemy==1.4.17
 sqlparse==0.4.1
 tqdm==4.61.0
-ttkthemes==3.2.2
 typing-extensions==3.10.0.0
 urllib3==1.26.4
 Werkzeug==2.0.1
