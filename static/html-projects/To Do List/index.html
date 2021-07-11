@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>To Do List</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style media="screen">
+      *{
+        font-family: "monospace",sans-serif;
+        color: #333;
+      }
+      body{
+        background: #2c3e50;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .main{
+        background: #fff;
+        width: 400px;
+        padding: 10px;
+        top: 30%;
+        position: absolute;
+        border-radius: 20px;
+      }
+      button{
+        width: 70px;
+        height: 42px;
+        background: #0456b9;
+        border: none;
+        color: #fff;
+        border-radius: 20px;
+        position: absolute;
+        float: right;
+        right: 8px;
+        top: 10px;
+        font-size: 15px;
+        outline: none;
+      }
+      .input{
+        /* display: flex; */
+      }
+      #txt{
+        width: 380px;
+        height: 30px;
+        color: #000;
+        font-size: 16px;
+        outline: none;
+        padding: 5px 10px;
+        border-radius: 20px;
+        border: 1px solid #999;
+      }
+      #txt::placeholder{
+        font-size: 15px;
+        color: #333;
+      }
+      #txt:focus{
+        border: 1px solid #2867e8;
+      }
+      #txt:focus::placeholder{
+        color: #2867e8;
+      }
+      #uncom{
+        margin-top: 20px;
+      }
+      #uncom p{
+        font-size: 22px;
+      }
+      li{
+        text-align: left;
+        background: #03387a;
+        padding: 10px;
+        margin: 5px;
+        position: relative;
+        list-style: none;
+        font-size: 16px;
+        /* text-decoration: line-through; */
+        color: #fff;
+        cursor: default;
+        border-radius: 10px;
+      }
+      li:active{
+        background: #035383;
+      }
+      i{
+        position: relative;
+        width: 38px;
+        height: 38px;
+        margin: 0px;
+        right: -10px;
+        top: -10px;
+        float: right;
+        cursor: pointer;
+      }
+      i::before{
+        content: '';
+        position: absolute;
+        width: 1.5px ;
+        height: 15px;
+        background: #fff;
+        transform: rotatez(45deg);
+        top: 12px;
+        left: 18px;
+      }
+      i::after{
+        content: '';
+        position: absolute;
+        width: 1.5px ;
+        height: 15px;
+        background: #fff;
+        transform: rotatez(-45deg);
+        left: 18px;
+        top: 12px;
+      }
+      i:active{
+        background: rgba(255,255,255,0.1);
+      }
+      .checked::before{
+        content: '';
+        position: absolute;
+        width: 7px ;
+        height: 14px;
+        border: 2px solid #fff;
+        border-top: transparent;
+        border-left: transparent;
+        transform: rotatez(45deg);
+        top: 8px;
+        left: 13px;
+      }
+      .checked{
+        text-decoration: line-through;
+        /* background: #b2b2b2; */
+        padding-left: 35px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="main">
+      <div class="input">
+      <input type="text" id="txt" placeholder="New Task...">
+      <button onclick="ad()">Add</button>
+      </div>
+      <div id="uncom">
+        <li class="checked">Coding</li>
+        <li>Programming</li>
+        <li>Learn JS</li>
+      </div>
+      <div id="com"></div>
+    </div>
+  </body>
+   <script type="text/javascript">
+      var un = document.getElementById("uncom");
+ 
+      var text = document.getElementById("text");
+      var li = document.getElementsByTagName("li");
+      var h;
+        for(h=0; h < li.length ; h++){
+          var span = document.createElement("i");
+          span.className = "close";
+          li[h].appendChild(span);
+        }
+
+        var close = document.getElementsByClassName("close");
+        var a;
+        for(a=0; a < close.length ; a++){
+          close[a].onclick = function(){
+            var div = this.parentElement;
+            div.style.display ="none";
+          }
+        }
+
+          var list = document.querySelector("#uncom");
+          list.addEventListener('click',function(ev){
+            if(ev.target.tagName ==='LI'){
+              ev.target.classList.toggle('checked');
+              // var li = document.getElementsByTagName("li");
+              // var span = document.createElement("i");
+              // span.className = "close";
+              // li[h].appendChild(span);
+            }
+          },false);
+
+          function ad(){
+            var li = document.createElement("li");
+            var inputValue=document.getElementById("txt").value;
+            var t = document.createTextNode(inputValue);
+            li.appendChild(t);
+            if(inputValue===''){
+              alert("you must write something");
+            }else{
+              document.getElementById("uncom").appendChild(li);
+            }
+            document.getElementById("txt").value = "";
+
+            var span = document.createElement("i");
+          span.className = "close";
+            li.appendChild(span);
+
+            for(i=0;i<close.length;i++){
+              close[i].onclick = function(){
+                var div = this.parentElement;
+                div.style.display="none";
+              }
+            }
+          }
+    </script>
+</html>

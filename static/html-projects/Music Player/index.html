@@ -1,0 +1,269 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MusicPlayer</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-decoration: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:#efefef;
+        }
+        .container{
+          position: relative;
+        }
+        .layout{
+            width: 330px;
+            height: 600px;
+            background: #fff;
+            border-radius: 25px;
+            box-shadow:  0 5px 10px -5px #000;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            overflow: hidden;
+            justify-content: space-around;
+        }
+      .musicbox{
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .songname{
+            padding: 30px 0 10px;
+            color: #111;
+        }
+        .music-container .musicbox .imagebox img{
+            width: 250px;
+            margin-top: 35px;
+            border-radius: 50%;
+            /* animation: rotate 8s linear infinite; */
+        }
+        .rotate{
+            animation: rotate 8s linear infinite;
+        }
+        .controls{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 50px;
+        }
+        .controls i{
+            width: 40px;
+            height: 40px;
+            background: #0461c8;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            transition: .3s all;
+        }
+        .controls i:nth-child(2){
+            transform: scale(1.3);
+        }
+        .controls i:active{
+            background: #023c7b;
+        }
+        .artistname{
+            color: #666;
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(365deg);
+            }
+        }
+        .slide{
+            width: 250px;
+            height: 5px;
+            background: #efefef;
+            border-radius: 50px;
+        }
+        .slide .fill{
+            width: 0px;
+            height: 5px;
+            background: #3264e9;
+            border-radius: 50px;
+        }
+        .range{
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="layout">
+    <!-- Music Player -->
+    <div class="music-container">
+      <div class="musicbox">
+          <h2 class="songname">Achi-maza-aayi</h2>
+          <span class="artistname">Dino James</span>
+          <div class="imagebox">
+              <img src="Achi-maza-ayi.jpg" alt="">
+          </div>
+          <audio src="Achi-maza-ayi.mp3" id="music"></audio>
+          <div class="range">
+              <div class="slide"><div class="fill"></div></div>
+              <!-- <input type="range" id="range" min="0" max="100" value="50"> -->
+          </div>
+          <div class="controls">
+              <i class="fa fa-step-backward" aria-hidden="true" id="back"></i>
+              <i class="fa fa-play" aria-hidden="true" id="play"></i>
+              <i class="fa fa-step-forward" aria-hidden="true" id="next"></i>
+          </div>
+      </div>
+  </div>
+        </div>
+    </div>
+<!-- Code injected by live-server -->
+<script type="text/javascript">
+	// <![CDATA[  <-- For SVG support
+	if ('WebSocket' in window) {
+		(function() {
+			function refreshCSS() {
+				var sheets = [].slice.call(document.getElementsByTagName("link"));
+				var head = document.getElementsByTagName("head")[0];
+				for (var i = 0; i < sheets.length; ++i) {
+					var elem = sheets[i];
+					head.removeChild(elem);
+					var rel = elem.rel;
+					if (elem.href && typeof rel != "string" || rel.length == 0 || rel.toLowerCase() == "stylesheet") {
+						var url = elem.href.replace(/(&|\?)_cacheOverride=\d+/, '');
+						elem.href = url + (url.indexOf('?') >= 0 ? '&' : '?') + '_cacheOverride=' + (new Date().valueOf());
+					}
+					head.appendChild(elem);
+				}
+			}
+			var protocol = window.location.protocol === 'http:' ? 'ws://' : 'wss://';
+			var address = protocol + window.location.host + window.location.pathname + '/ws';
+			var socket = new WebSocket(address);
+			socket.onmessage = function(msg) {
+				if (msg.data == 'reload') window.location.reload();
+				else if (msg.data == 'refreshcss') refreshCSS();
+			};
+			console.log('Live reload enabled.');
+		})();
+	}
+	// ]]>
+</script>
+</body>
+<script type="text/javascript">
+    // Music Player
+    var play = document.getElementById("play");
+    var music = document.querySelector("audio");
+    var back = document.querySelector("#back");
+    var next = document.querySelector("#next");
+    var artistname = document.querySelector(".artistname");
+    var songname = document.querySelector(".songname");
+    var img = document.querySelector("img");
+
+
+    var isPlaying = false;
+
+    var playMusic = () => {
+        isPlaying = true;
+        music.play();
+        play.classList.replace('fa-play','fa-pause');
+    };
+  
+    var pauseMusic=  () => {
+        isPlaying = false;
+        music.pause();
+        play.classList.replace('fa-pause','fa-play')
+    };
+    play.addEventListener('click', () => {
+        isPlaying ? pauseMusic() : playMusic();
+    });
+
+    const songs= [
+        {
+        name: "Achi-maza-ayi",
+        artist: "Dino James",
+       },
+       {
+        name: "Dooriyan",
+        artist: "Dino James",
+       },
+       {
+        name: "kaaliya",
+        artist: "Dino James",
+       },
+       {
+        name: "LOSER",
+        artist: "Dino James",
+       },
+       {
+        name: "Mirage",
+        artist: "Dino James",
+       },
+       {
+        name: "tandav",
+        artist: "Dino James",
+       },
+       {
+        name: "Wishlist",
+        artist: "Dino James",
+       },
+       {
+        name: "Thanks-a-lot",
+        artist: "Dino James",
+       },
+       {
+        name: "Unstoppable",
+        artist: "Dino James",
+       }
+    ];
+
+    const loadSongs = (songs) => {
+        music.src = songs.name+".mp3";
+        artistname.textContent = songs.artist;
+        songname.textContent = songs.name;
+        img.src = songs.name+".jpg";
+    }
+    songsIndex = 0;
+    // loadSongs(songs[3]);
+
+    const nextSong = () => {
+        songsIndex = (songsIndex + 1)% songs.length;
+        loadSongs(songs[songsIndex]);
+        playMusic();
+    }
+    const backSong = () => {
+        songsIndex = (songsIndex - 1 + songs.length) % songs.length;
+        loadSongs(songs[songsIndex]);
+        playMusic();
+    }
+    next.addEventListener('click',nextSong);
+    back.addEventListener('click',backSong);
+
+    const vol = document.getElementById("range");
+    // music.volume = vol.value;
+    music.addEventListener('timeupdate', () => {
+        let pos = music.currentTime / music.duration;
+        let fill = document.querySelector(".fill");
+        fill.style.width = pos*100 + "%";
+        
+    });
+  </script>
+</html>

@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBCODER</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Montserrat', sans-serif;;
+            list-style: none;
+            text-decoration: none;
+        }
+        html{
+            scroll-behavior: smooth;
+        }
+        body{
+        }
+        .header{
+            /* background: rgba(0, 0, 0, .4); */
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: fixed;
+            width: 100%;
+            height: 70px;
+            /* background: #289cfb; */
+            transition: .3s all;
+            z-index: 999;
+        }
+        .nav{
+            background: #111;
+            height: 45px;
+        }
+        .logo img{
+            position: fixed;
+            width: 35px;
+            top: 15px;
+            left: 20px;
+            border-radius: 50%;
+            transition: .3s all;
+        }
+        .header nav{
+            display: flex;
+            justify-content: space-evenly;
+            margin-right: 40px;
+            background: none;
+            transition: .3s all;
+        }
+        .header nav li a{
+            color: #fff;
+            text-transform: uppercase;
+            margin: 0 10px;
+            padding: 0px 4px;
+            /* border-bottom: 2px solid #27cefe; */
+        }
+        .header nav li a:hover{
+            color: #289cfb;
+        }
+        section{
+            position: relative;
+        }
+        /* home section */
+        #home{
+            height: 100vh;
+            background: url("lap2.jfif");
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+        .home{
+            padding: 50px;
+        }
+        .home .intro{
+            padding: 10rem 4rem;
+        }
+        .home .intro h1{
+            color: #fff;
+            font-size: 2.5rem;
+        }
+        .home .intro h1 span{
+            color: #3faafa;
+        }
+        .home .intro button{
+            background: #289cfb;
+            border: none;
+            padding: 8px 13px;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+        .home .intro button a{
+            color: #fff;
+        }
+
+        /* about section */
+        #about{
+            min-height: 100vh;
+        }
+        .about{
+            padding: 80px 30px 30px;
+        }
+         .hd{
+            text-align: center;
+            position: absolute;
+            top: 0px;
+            left: 50%;
+            transform: translatex(-50%);
+        }
+         .about .hd h1{
+            position: relative;
+            width: 200px;
+            margin: 20 auto;
+            color: #111;
+        }
+         .about .hd h1::before{
+            content: '';
+            position: absolute;
+            background: #333;
+            width: 150px;
+            height: 3px;
+            border-radius: 50px;
+            left: 25px;
+            bottom: -7px;
+        }
+         .hd h1::after{
+            content: '';
+            position: absolute;
+            background: red;
+            width: 15px;
+            height: 15px;
+            transform: rotate(45deg);
+            left: 95px;
+            bottom: -13px;
+        }
+        .about .info .image{
+            height: 30rem;
+            padding: 90px 40px 50px;
+            width: 50%;
+            display: flex;
+            justify-content: center;
+        }
+        .about .image img{
+            width: 23rem;
+            height: 26rem;
+            /* display: none; */
+        }
+        .about .info{
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .about .info .text{
+            width: 50%;
+            padding: 40px;
+        }
+        .about .info .text p{
+            font-family:'Roboto', sans-serif;
+        }
+        .about .text h1{
+            text-align: left;
+            padding: 10px 0;
+        }
+
+        /* design section */
+        #skill{
+            min-height: 70vh;
+            background: #092f5e;
+            color: #fff;
+
+        }
+        .skill{
+            padding: 70px 30px 30px;
+        }
+        .hd h1::before{
+            content: '';
+            position: absolute;
+            background: #fff;
+            width: 150px;
+            height: 3px;
+            border-radius: 50px;
+            left: 25px;
+            bottom: -7px;
+        }
+        .skill .chart{
+            padding: 8rem 50px;
+        }
+        .skill .chart .bar{
+            width: 100%;
+            background: #fff;
+            height: 8px;
+            margin: 10px 0 20px;
+            border-radius: 50px;
+            overflow: hidden;
+        }
+        .skill .chart .bar .html{
+            height: 100%;
+            background: cornflowerblue;
+            width: 90%;
+        }
+        .skill .chart .bar .css{
+            height: 100%;
+            background: cornflowerblue;
+            width: 80%;
+        }
+        .skill .chart .bar .js{
+            height: 100%;
+            background: cornflowerblue;
+            width: 50%;
+        }
+        .skill .chart .bar .jq{
+            height: 100%;
+            background: cornflowerblue;
+            width: 60%;
+        }
+        .menu{
+            display: none;
+        }
+
+        /* service section  */
+        #service{
+            min-height: 100vh;
+        }
+        .service{
+            padding: 80px 30px 20px;
+        }
+        .service .hd h1{
+            position: relative;
+            width: 200px;
+            margin: 30px auto;
+            color: #111;
+        }
+         .service .hd h1::before{
+            content: '';
+            position: absolute;
+            background: #333;
+            width: 200px;
+            height: 3px;
+            border-radius: 50px;
+            left: 25px;
+            bottom: -7px;
+        }
+        .service .cards{
+            color: #fff;
+            margin: 100px auto;
+            padding: 10px;
+            display: flex;
+            justify-content: space-around;
+            place-items: center;
+        }
+        .service .cards .card{
+            background: #0f1e33;
+            margin: 5px;
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            border-radius: 5px;
+            text-align: center;
+            transition: .3s all;
+            border: 2px solid #0f1e33;
+        }
+        .service .cards .card:hover{
+            background: none;
+            border: 2px solid #0f1e33;
+            color: #0f1e33;
+        }
+        .service .cards .card h1{
+            text-align: left;
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        .service .cards .card img{
+            width: 100px;
+            background: #fff;
+            border-radius: 50%;
+            margin: 10px 0;
+        }
+        .service .cards .card p{
+            text-align: left;
+            font-size: 14px;
+        }
+        /* contact section  */
+        #contact{
+            min-height: 100vh;
+            background: #0f1e33;
+        }
+        .contact{
+            padding: 90px 30px 30px;
+        }
+        .hd h1{
+            position: relative;
+            width: 200px;
+            margin: 30px auto;
+            color: #fff;
+        }
+        .form-box{
+            width: 90%;
+            margin: 70px auto;
+            color: #fff;
+            display: flex;
+            position: relative;
+        }
+        .form-box::before{
+            content: '';
+            position: absolute;
+            background: #092f5e;
+            width: 40px;
+            height: 40px;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%,-50%);
+            border-radius: 50% 0 0 50%;
+        }
+        .form-box .form{
+            background: #092f5e;
+            width: 50%;
+            height: 28rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .form-box .form h1{
+            font-size: 25px;
+            margin: 40px auto 20px;
+        }
+        .form-box .form > *{
+            margin: 20px 0;
+            outline: none;
+            font-size: 15px;
+            color: #fff;
+            border: none;
+        }
+        .form-box .form > *::placeholder{
+            color: #0eb6f5;
+            font-size: 15px;
+            font-family:Arial, Helvetica, sans-serif;
+            letter-spacing: .5px;
+        }
+        .form-box .form input[type="text"]{
+            width: 90%;
+            height: 2rem;
+            border-bottom: 2px solid #0eb6f5;
+            background: none;
+        }
+        .form-box .form input[type="username"]{
+            width: 90%;
+            height: 2rem;
+            border-bottom: 2px solid #0eb6f5;
+            background: none;
+        }
+        .form-box .form textarea{
+            width: 90%;
+            height: 7rem;
+            border-bottom: 2px solid #0eb6f5;
+            background: none;
+            resize: none;
+        }
+        .form-box .form input[type="submit"]{
+            padding: 8px 17px;
+            background: #289cfb;
+            font-size: 15px;
+            cursor: pointer;
+            position: absolute;
+            bottom: 0px;
+            right: 20px;
+        }
+        .form-box .address{
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            background: #176cca;
+            padding: 15px 0;
+        }
+        .form-box .address > div{
+            margin: 10px auto;
+            width: 50%;
+        }
+        .form-box .address div > h1{
+            text-align: left;
+            margin: 5px 0;
+        }
+
+
+        /* responsive */
+        @media (max-width: 750px) {
+            .about .info{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-around;
+        }
+        .about .info .image{
+            height: 23rem;
+            padding: 60px 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .about .info img{
+            width: 20rem;
+            height: 100%;
+        }
+        .about .info .text{
+            width: 90%;
+            padding: 20px 20px 40px;
+        }
+        /* service */
+        .service .cards{
+            margin: 60px auto 30px;
+            flex-direction: column;
+        }
+        .service .cards .card{
+            width: 250px;
+            height: 250px;
+        }
+        /* contact */
+        .form-box{
+            flex-direction: column;
+        }
+        .form-box::before{
+            top: 36.5%;
+            background: #176cca;
+            border-radius: 0 0 50% 50%;
+        }
+        .form-box .form{
+            flex-direction: column;
+            width: 100%;
+        }
+        .form-box .address{
+            width: 100%;
+        }
+        .form-box .address div > h1{
+            font-size: 22px;
+        }
+        /* skill */
+        #skill{
+            min-height: 50vh;
+        }
+        .skill{
+            padding: 10px;
+        }
+        /* home */
+        .home{
+            padding: 50px;
+        }
+        .home .intro{
+            padding: 8rem 2rem;
+        }
+        }
+        @media (max-width: 650px){
+        /* menu */
+           .header{
+        }
+        .side{
+            left: -100%;
+        }
+        .header .navbar{
+            position: fixed;
+            background: black;
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        .header nav li{
+            margin: 20px 0;
+            font-size: 20px;
+        }
+        .header nav{
+            /* transition: .5s all; */
+        }
+        .header nav li a:hover{
+            /* color: #289cfb; */
+        }
+         .logo img{
+        }
+        /* bar  */
+        .menu{
+            cursor: pointer;
+            top: 9px;
+            right: 15px;
+            display: block;
+            position: fixed;
+        }
+        .menu div{
+            background: #fff;
+            height: 3px;
+            margin: 8px 0;
+            border-radius: 50px;
+            transition: .2s all;
+        }
+        .change{
+            top: 15px;
+        }
+        .line1{
+            width: 40px;
+        }
+        .line2{
+            width: 25px;
+            transform: translate(55%);
+        }
+        .change .line1{
+            width: 30px;
+            transform: rotate(45deg) translate(26%);
+        }
+        .change .line2{
+            width: 30px;
+            transform: rotate(-45deg) translate(24%);
+        }
+        }
+
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="header">
+            <div class="logo">
+                <img src="logo.png" alt="" id="img">
+            </div>
+            <nav class="navbar side">
+                <li onclick="hide()"><a href="#home">home</a></li>
+                <li onclick="hide()"><a href="#about">about</a></li>
+                <li onclick="hide()"><a href="#skill">skill</a></li>
+                <li onclick="hide()"><a href="#service">service</a></li>
+                <li onclick="hide()"><a href="#contact">contact</a></li>
+            </nav>
+                <div class="menu" onclick="anim()">
+                    <div class="line1"></div>
+                    <div class="line2"></div>
+                </div>
+        </div>
+    </div>
+    <section id="home">
+        <div class="home">
+            <div class="intro">
+        <h1>Hi</h1>
+        <h1>My Name is <span>Aaryan Patel</span></h1>
+        <h1>and I Am <span>Web Devloper</span></h1>
+        <button><a href="#about">Get Started</a></button>
+        </div>
+        </div>
+    </section>
+
+    <!-- about section -->
+
+    <section id="about">
+        <div class="about">
+            <div class="hd">
+        <h1>ABOUT</h1>
+            </div>
+        <div class="info">
+        <div class="image">
+            <img src="image.jpg" alt="">
+        </div>
+        <div class="text">
+            <h1>Aaryan Patel</h1>
+            <p>Hello, My name is Aaryan Patel. I Learn Web Languages like HTML , CSS , Javascript and JQuery. I am 17 year old and I study in 12th. I have a Laptop on which I Learn and Work. I create channel <b>WEB CODER</b> on Youtube on which I upload videos of html css and Javascript project and create channel on Instagram on which same project. I should I want to be best programmer in the world. I love my Work and this my passion.</p>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <!-- design section -->
+    <section id="skill">
+        <div class="skill">
+            <div class="hd">
+                <h1>SKILL</h1>
+                    </div>
+            <div class="chart">
+                <span>HTML</span>
+                <div class="bar">
+                    <div class="html"></div>
+                </div>
+                <span>CSS</span>
+                <div class="bar">
+                    <div class="css"></div>
+                </div>
+                <span>JAVASCRIPT</span>
+                <div class="bar">
+                    <div class="js"></div>
+                </div>
+                <span>JQUERY</span>
+                <div class="bar">
+                    <div class="jq"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service section  -->
+    <section id="service">
+        <div class="service">
+            <div class="hd">
+                <h1>SERVICE</h1>
+                    </div>
+                <div class="cards">
+                    <div class="card">
+                        <img src="web.jpg" alt="image" class="img">
+                        <h1>Web Design</h1>
+                        <p>Web design encompasses many different skills and disciplines in the production and maintenance of websites.</p>
+                    </div>
+                    <div class="card">
+                        <img src="ui.webp" alt="">
+                        <h1>UI/UX Design</h1>
+                        <p>User experience design (UXD, UED, or XD) is the process of supporting user behavior[1] through usability, usefulness.</p>
+                    </div>
+                    <div class="card">
+                        <img src="app.png" alt="">
+                        <h1>App Design</h1>
+                        <p>A mobile application, also referred to as a mobile app or simply an app, is a computer program or software application.</p>
+                    </div>
+                </div>
+        </div>
+    </section>
+    <!-- contact section  -->
+    <section id="contact">
+        <div class="contact">
+            <div class="hd">
+                <h1>CONTACT</h1>
+                    </div>
+                    <div class="form-box">
+                    <div class="address">
+                        <div class="info">
+                       <h1>Email ID</h1> 
+                       <span>thecoder2003@gmail.com</span>
+                    </div>
+                    <div class="info">
+                        <h1>Contact No.</h1> 
+                        <span>9171585211</span>
+                     </div>
+                     <div class="info">
+                        <h1>Address</h1> 
+                        <span>Khargone , MP</span>
+                     </div>
+                    </div>
+            <div class="form">
+                <h1>GET IN TOUCH</h1>
+                <input type="text" placeholder="Name">
+                <input type="username" placeholder="Username">
+                <textarea name="" id="" placeholder="Type a message..."></textarea>
+                <input type="submit">
+            </div>
+        </div>
+        </div>
+    </section>
+</body>
+<script>
+    window.onscroll = function() {scrollFunction()};
+    var header = document.querySelector(".header");
+function scrollFunction() {
+    if (document.body.scrollTop > 40 || document.documentElement.scrollTop > 40) {
+        header.classList.add("nav");
+        document.querySelector("#img").style.top = "2px";
+    } else {
+        header.classList.remove("nav");
+        document.querySelector("#img").style.top = "15px";
+    }
+}
+
+var menu = document.querySelector(".menu");
+var nav = document.querySelector(".navbar");
+    function anim(){
+        menu.classList.toggle("change");
+var nav = document.querySelector(".navbar");
+        nav.classList.toggle("side");
+    }
+    function hide(){
+        nav.classList.toggle("side");
+        menu.classList.toggle("change");
+    }
+</script>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="shortout icon" type="image/x-icon" href="logo2.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        body{
+            background: linear-gradient(120deg,#1761ec,#e212a4);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .main{
+            display: flex;
+            width: 22em;
+            height: 28em;
+            overflow: hidden;
+            position: relative;
+            text-align: center;
+        }
+        .form-box{
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+        }
+        .signin,.signup{
+            top: 120px;
+            height: 100%;
+            width: 100%;
+            position: absolute;
+            transition: .4s;
+        }
+        .signin{
+            left:0px;
+            top: 140px;
+        }
+        .signup{
+            left: 400px;
+        }
+        .slider{
+            margin: 20px auto;
+            text-align: center;
+            width: 180px;
+            height: 38px;
+            border-radius: 50px;
+            border: 1px solid#adadad;
+            position: relative;
+        }
+        .slider p{
+            background: none;
+            line-height: 30px;
+            border: none;
+            margin: 5px 15px;
+            font-size: 1em;
+            outline: none;
+            z-index: 2;
+            position: relative;
+            cursor: pointer;
+            display: inline-block;
+            transition: .2s;
+            color: #888;
+        }
+        .slide{
+            height: 39px;
+            width: 95px;
+            background: linear-gradient(120deg,#1761ec,#e212a4);
+            position: absolute;
+            top: 0px;
+            left: -1px;
+            border-radius: 50px;
+            z-index: 1;
+            transition: .4s all;
+        }
+        #p1{
+            color: #fff;
+        }
+         input{
+            width: 18em;
+            height: 40px;
+            border-radius: 50px;
+            border: 1px solid #b6b6b6;
+            margin: 10px auto;
+            padding-left: 10px;
+            outline: none;
+            font-size: 16px;
+        }
+        input:focus{
+          border: 1px solid #3498db;
+        }
+        input:focus::placeholder{
+          color: #3498db;
+        }
+         input[type="submit"]{
+            background: linear-gradient(120deg,#1761ec,#e212a4);
+            color: #fff;
+            width: 19em;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover{
+            background: linear-gradient(120deg,#e212a4,#1761ec);
+        }
+        .icon{
+          display: flex;
+          justify-content: center;
+        }
+         .icon p{
+        background: linear-gradient(120deg,#1761ec,#e212a4);
+        width: 35px;
+        height: 35px;
+        margin: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 20px;
+        color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+        }
+        .signin .icon{
+            margin: 35px 0;
+        }
+        .signup .icon {
+            margin: 5px 0;
+        }
+        h1{
+            margin: 10px 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: #154bee;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div class="form-box">
+        <h1>Login</h1>
+        <div class="slider">
+        <div class="slide"></div>
+        <p onclick="signin()" id="p1">Sign In</p>
+        <p onclick="signup()" id="p2">Sign up</p>
+        </div>
+        <form action="">
+        <div class="signin">
+            <input type="username" placeholder="Username" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit" value="Sign in">
+            <div class="icon">
+            <p><i class="fa fa-google"></i></p>
+            <p><i class="fa fa-facebook"></i></p>
+            <p><i class="fa fa-twitter"></i></p>
+            </div>
+        </div>
+    </form>
+        <form action="">
+        <div class="signup">
+            <input type="username" placeholder="Username" required>
+            <input type="email" placeholder="Email" required>
+            <input type="password" placeholder="Password" required>
+            <input type="submit" value="Sign up">
+            <div class="icon">
+                <p><i class="fa fa-google"></i></p>
+                <p><i class="fa fa-facebook"></i></p>
+                <p><i class="fa fa-twitter"></i></p>
+            </div>
+        </div>
+        </form>
+        </div>
+        </div>
+        <script>
+        var sup = document.querySelector(".signup");
+        var sin = document.querySelector(".signin");
+        var p2 = document.getElementById("p2");
+        var p1 = document.getElementById("p1");
+        var slide = document.querySelector(".slide");
+            function signin() {
+                slide.style.left = "-1px";
+                p1.style.color = "#fff";
+                p2.style.color = "#888";
+                sup.style.left = "400px";
+                sin.style.left = "0px";
+            }
+            function signup() {
+                slide.style.left = "89px";
+                p2.style.color = "#fff";
+                p1.style.color = "#888";
+                sup.style.left = "0px";
+                sin.style.left = "-400px";
+            }
+        </script>
+</body>
+</html>

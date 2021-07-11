@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+{% block title %}{{project.title}}{% endblock title %}
+{% block head %}
+{% endblock head %}
+{% block style %}
+  .toolbar-item button{
+    cursor: pointer !important;
+    color: #fff !important;
+    border: 1px solid #fff !important;
+    border-radius: 15px !important;
+    padding: 3px 14px !important;
+    background: none;
+}
+.cheatsheet-page{
+  position: relative;
+}
+.toolbar{
+  position: absolute;
+  top: 42px;
+  right: 22px;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 1s;
+}
+.toolbar .toolbar-item span{
+  display: none;
+}
+.cheatsheet-page:hover .toolbar{
+    visibility: visible;
+    opacity: 1;
+}
+.cheatsheet-page pre{
+  max-height: 500px;
+  overflow: scroll;
+}
+
+{% endblock style %}
+{% block body %}
+
+  <div class="container mt-4">
+
+    <div class="row heading justify-content-center">
+      <h2><pre>{{pygamesheet.title}}</pre></h2>
+    </div>
+      <div class="cheatsheet-page my-4 .last">
+        <h4>Code.py</h4>
+          <pre class="language-python"><code>{{pygamesheet.code}}</code></pre>
+    </div>
+
+  </div>
+
+  {% endblock body %}

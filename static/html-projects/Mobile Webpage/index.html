@@ -1,0 +1,873 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mobile</title>
+    <link rel="stylesheet" href="all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            text-decoration: none;
+        }
+        body{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background:#406296;
+        }
+        .container{
+            position: relative;
+            width: 340px;
+            height: 600px;
+            border-radius: 50px;
+            padding-top: 60px;
+            padding-bottom: 20px;
+            z-index: 2234;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            /* box-shadow:  0 1px 7px -5px #000; */
+            border: 1px solid #aaa;
+            overflow: hidden;
+        }
+        .container::before{
+          content: '';
+          position: absolute;
+          height: 5px;
+          width: 5px;
+          top: 29px;
+          background: #bbb;
+          left: 125px;
+          border-radius: 50%;
+        }
+        .container::after{
+          content: '';
+          position: absolute;
+          height: 3px;
+          width: 60px;
+          top: 30px;
+          background: #bbb;
+          border-radius: 50px;
+        }
+        .layout{
+            margin-top: 0px;
+            width:100%;
+            height: 93%;
+            display: flex;
+            flex-wrap: wrap;
+            position: relative;
+            justify-content: space-around;
+            overflow: hidden;
+            background: #fff;
+            z-index: 243;
+            border-top: 1px solid #aaa;
+            /* background: url('background.jpg');
+            background-position: center;
+            background-size: cover; */
+        }
+        .layout .apps{
+            display: flex;
+            flex-wrap: wrap;  
+        }
+        .layout .app{
+            background: #eee;
+            width: 48px;
+            height: 48px;
+            margin: 25px 16px;
+            border-radius: 10px;
+            color: #aaa;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* display: none; */
+            cursor: pointer;
+        }
+        .layout .app:nth-child(1){
+          background: url("calc-logo.png");
+          background-size: cover;
+          background-position: center;
+        }
+        .layout .app:nth-child(2){
+          background: url("mus-logo.png");
+          background-size: cover;
+          background-position: center;
+        }
+        .layout .app:nth-child(3){
+          background: url("listlogo.png");
+          background-size: cover;
+          background-position: center;
+        }
+        .layout .app:nth-child(4){
+          background: url("bg.png");
+          background-size: cover;
+          background-position: center;
+        }
+        .layout .apphide{
+            display: none;
+        }
+        /* back buttons */
+      .container .back-button{
+        background: #fff;
+        height: 62px;
+        width: 100%;
+        position: absolute;
+        bottom: 0;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        z-index: 234444;
+        border-radius: 0 0 25px 25px;
+        border-top: 1px solid #999;
+        /* display: none; */
+      }
+      .container .back-button .goll{
+        width: 40px;
+        height: 40px;
+        background: #fff;
+        border-radius: 50%;
+        border: 2px solid #aaa;
+      }
+      .container .back-button .goll:active{
+      box-shadow: inset -1px -1px 3px #aaa,
+        inset 1px 1px 3px #aaa;
+      }
+        /* calculator */
+        .calhide{
+        display: none;
+        }
+        .main{
+        width: 100%;
+        height: 100%;
+        background: #fff;
+        position: absolute;
+      }
+      .button{
+        position: absolute;
+        /* background: #005eff; */
+        bottom: 0px;
+        left: 0;
+        height: 25rem;
+        padding: 7px;
+        display: grid;
+        grid-template-columns: 80px 80px 80px 80px;
+        grid-gap: 4px;
+        grid-template-areas: 
+        'clear clear divide multi'
+        'num7 num8 num9 min'
+        'num4 num5 num6 plus'
+        ' num1 num2 num3 equal'
+        'zero zero dot equal';
+      }
+      .num{
+        width: 77px;
+        height: 77px;
+        font-size: 30px;
+        border: none;
+        color: #111;
+        background: #fff;
+        outline: none;
+        border: 1px solid #ddd;
+      }
+      .num1{grid-area: num1;}
+      .num2{grid-area: num2;}
+      .num3{grid-area: num3;}
+      .num4{grid-area: num4;}
+      .num5{grid-area: num5;}
+      .num6{grid-area: num6;}
+      .num7{grid-area: num7;}
+      .num8{grid-area: num8;}
+      .num9{grid-area: num9;}
+      .multi{grid-area: multi;font-size: 40px;}
+      .divide{grid-area: divide;}
+      .min{grid-area: min;font-size: 40px;}
+      .plus{grid-area: plus;font-size: 40px;}
+      .dot{grid-area: dot;font-size: 45px;}
+      .num:active{
+        background: #111;
+        color: #fff;
+      }
+      input[type="textview"]{
+        width: 93%;
+        height: 145px;
+        font-size: 30px;
+        outline: none;
+        padding: 0 10px;
+        text-align: right;
+        border: 1px solid #ddd;
+      }
+      .zero{
+        width: 161px;
+        /* background: #005eff; */
+        grid-area: zero;
+      }
+      .equal{
+        height:160px ;
+        /* background: #180dee; */
+        grid-area: equal;
+      }
+      .clear{
+        width: 161px;
+        /* background: #f40a51; */
+        grid-area: clear;
+      }
+      .clear:active{
+        /* background: #b40a3e; */
+      }
+      .equal:active{
+        /* background: #0c0598; */
+      }
+      .zero:active{
+        /* background: #093886; */
+      }
+
+      /* Music Player */
+      .musicbox{
+            background: #fff;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            text-align: center;
+        }
+        .musichide{
+          display: none;
+        }
+        .songname{
+            padding: 30px 0 10px;
+            color: #333;
+        }
+        .music-container .musicbox .imagebox img{
+            width: 250px;
+            margin-top: 35px;
+            border-radius: 50%;
+            /* animation: rotate 8s linear infinite; */
+        }
+        .rotate{
+            animation: rotate 8s linear infinite;
+        }
+        .controls{
+            display: flex;
+            justify-content: space-evenly;
+            margin-top: 50px;
+            align-items: center;
+        }
+        .controls i{
+            width: 40px;
+            height: 40px;
+            background: #0461c8;
+            align-items: center;
+            display: flex;
+            justify-content: center;
+            border-radius: 50%;
+            color: #fff;
+            cursor: pointer;
+            transition: .3s all;
+        }
+        #play{
+          width: 50px;
+          height: 50px;
+        }
+        .controls i:active{
+            background: #023c7b;
+        }
+        .artistname{
+            color: #999;
+        }
+        @keyframes rotate{
+            0%{
+                transform: rotate(0deg);
+            }
+            100%{
+                transform: rotate(365deg);
+            }
+        }
+        .slide{
+            width: 250px;
+            height: 5px;
+            background: #eee;
+            border-radius: 50px;
+        }
+        .slide .fill{
+            width: 0px;
+            height: 5px;
+            background: #3264e9;
+            border-radius: 50px;
+        }
+        .range{
+            display: flex;
+            justify-content: center;
+            margin: 30px 0;
+        }
+
+        /* To Do List */
+        .todolist{
+        background: #fff;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        box-shadow: 0 2px 20px -13px #000;
+        overflow: hidden;
+        overflow-y: scroll;
+      }
+      .tohide{
+        display: none;
+      }
+      .todolist::-webkit-scrollbar{
+        width: 0;
+      }
+      .todolist .image{
+        width: 100%;
+        height: 27vh;
+        position: relative;
+      }
+      .todolist .image img{
+        width: 100%;
+      }
+      .todolist .image::before{
+        content: 'To Do List';
+        position: absolute;
+        background: rgba(0,0,0,0.4);
+        width: 100%;
+        height: 93%;
+        color: #dddafe;
+        font-weight: bold;
+        font-size: 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      }
+      .todolist .box{
+        padding: 0 10px 10px;
+      }
+      .todolist button{
+        width: 70px;
+        height: 38px;
+        background: #0771da;
+        border: none;
+        color: #fff;
+        border-radius: 2px;
+        position: absolute;
+        right: 0px;
+        top: 0;
+        font-size: 15px;
+        outline: none;
+      }
+      .todolist .input{
+        width: 100%;
+        height: 40px;
+        margin: 10px 0;
+        position: relative;
+        overflow: hidden;
+      }
+      .todolist #txt{
+        width: 100%;
+        height: 30px;
+        color: #000;
+        font-size: 16px;
+        outline: none;
+        padding: 3px 10px;
+        border-radius: 2px;
+        border: 1px solid #999;
+        margin-top: 0px;
+        position: relative;
+      }
+      .todolist #txt::placeholder{
+        font-size: 15px;
+        color: #333;
+      }
+      .todolist #txt:focus{
+        border: 1px solid #2867e8;
+      }
+      .todolist #txt:focus::placeholder{
+        color: #2867e8;
+      }
+      .todolist #uncom{
+        margin-top: 10px;
+      }
+      .todolist #uncom p{
+        font-size: 22px;
+      }
+      .todolist li{
+        text-align: left;
+        background: #0771da;
+        padding: 9px;
+        margin: 5px 0;
+        position: relative;
+        list-style: none;
+        font-size: 16px;
+        /* text-decoration: line-through; */
+        color: #fff;
+        cursor: default;
+        border-radius: 2px;
+      }
+      .todolist li:active{
+        background: #021f42;
+      }
+      .todolist i{
+        position: relative;
+        width: 38px;
+        height: 38px;
+        margin: 0px;
+        right: -10px;
+        top: -10px;
+        float: right;
+        cursor: pointer;
+      }
+      .todolist i::before{
+        content: '';
+        position: absolute;
+        width: 1.5px ;
+        height: 15px;
+        background: #fff;
+        transform: rotatez(45deg);
+        top: 12px;
+        left: 18px;
+      }
+      .todolist i::after{
+        content: '';
+        position: absolute;
+        width: 1.5px ;
+        height: 15px;
+        background: #fff;
+        transform: rotatez(-45deg);
+        left: 18px;
+        top: 12px;
+      }
+      .todolist i:active{
+        background: rgba(255,255,255,0.1);
+      }
+      .todolist .checked::before{
+        content: '';
+        position: absolute;
+        width: 7px ;
+        height: 14px;
+        border: 2px solid #fff;
+        border-top: transparent;
+        border-left: transparent;
+        transform: rotatez(45deg);
+        top: 8px;
+        left: 13px;
+      }
+      .todolist .checked{
+        text-decoration: line-through;
+        background: #021f42;
+        color: #7d7d7d;
+        padding-left: 35px;
+      }
+
+      /* bg color */
+      .bgcolor .bg{
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: grid;
+            box-sizing: border-box;
+            grid-template-columns: auto auto;
+            grid-template-rows: 192px 192px 192px 192px;
+            overflow-y: scroll;
+        }
+        .bgcolor .bg::-webkit-scrollbar{
+          width: 0;
+        }
+        .bghide{
+          display: none;
+        }
+        .bgcolor .color-box{
+            max-width: 20rem;
+            height: 12rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 18px;
+            color: #fff;
+            cursor: text;
+        }
+        .color-box:hover p{
+            display: block;
+        }
+        .color-box p{
+            color: #fff;
+            font-size: 16px;
+            border: 2px solid #efefef;
+            border-radius: 5px;
+            padding: 5px 12px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: none;
+            position: absolute;
+        }
+        .color-box span{
+            display: none;
+        }
+        input{
+            position: absolute;
+            z-index: -2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+      <div class="top"></div>
+            <div class="bottom"></div>
+            <div class="back-button">
+                <div class="goll" onclick="home()"></div>
+            </div>
+        <div class="layout">
+            <div class="apps">
+            <div class="app calbutton" onclick="calc()"></div>
+            <div class="app" onclick="dj()"></div>
+            <div class="app" onclick="todo()"></div>
+            <div class="app" onclick="bg()"></div>
+            </div>
+            <!-- calculator -->
+            <div class="main calculator calhide">
+                <form name="form">
+                  <input type="textview" name="textview" readonly>
+                </form>
+                <div class="button">
+                <input type="button" class="num clear" value="C" onclick="clearnum()">
+                <input type="button" class="num divide" value="/" onclick="insert('/')">
+                <input type="button" class="num multi" value="&times" onclick="insert('*')">
+                <input type="button" class="num num7" value="7" onclick="insert(7)">
+                <input type="button" class="num num8" value="8" onclick="insert(8)">
+                <input type="button" class="num num9" value="9" onclick="insert(9)">
+                <input type="button" class="num min" value="-" onclick="insert('-')">
+                <input type="button" class="num num4" value="4" onclick="insert(4)">
+                <input type="button" class="num num5" value="5" onclick="insert(5)">
+                <input type="button" class="num num6" value="6" onclick="insert(6)">
+                <input type="button" class="num plus" value="+" onclick="insert('+')">
+                <input type="button" class="num num1" value="1" onclick="insert(1)">
+                <input type="button" class="num num2" value="2" onclick="insert(2)">
+                <input type="button" class="num num3" value="3" onclick="insert(3)">
+                <input type="button" class="num equal" value="=" onclick="equal()">
+                <input type="button" class="num zero" value="0" onclick="insert(0)">
+                <input type="button" class="num dot" value="." onclick="insert('.')">
+              </div>
+    </div>
+    <!-- Music Player -->
+    <div class="music-container musichide">
+      <div class="musicbox">
+          <h2 class="songname">Achi-maza-aayi</h2>
+          <span class="artistname">Dino James</span>
+          <div class="imagebox">
+              <img src="Achi-maza-ayi.jpg" alt="">
+          </div>
+          <audio src="Achi-maza-ayi.mp3" id="music"></audio>
+          <div class="range">
+              <div class="slide"><div class="fill"></div></div>
+
+              <!-- <input type="range" id="range" min="0" max="100" value="50"> -->
+          </div>
+          <div class="controls">
+              <i class="fad fa-step-backward" aria-hidden="true" id="back"></i>
+              <i class="fa fa-play" aria-hidden="true" id="play"></i>
+              <i class="fa fa-step-forward" aria-hidden="true" id="next"></i>
+          </div>
+      </div>
+  </div>
+
+<!-- TO DO LIST -->
+
+<div class="todolist tohide">
+  <div class="image"><img src="/livingroom.jpg" alt=""></div>
+  <div class="box">
+  <div class="input">
+  <input type="text" id="txt" placeholder="New Task...">
+  <button onclick="ad()">Add</button>
+  </div>
+  <div id="uncom">
+    <li>Quiz game</li>
+    <li>Image Slider</li>
+    <li>Shuffle Name</li>
+    <li>Return the four Letter String</li>
+    <li>Negate the Array of Numbers</li>
+    <li>Larger Number</li>
+  </div>
+</div>
+</div>
+
+<!-- bg color -->
+<div class="bgcolor bghide">
+  <h1>Background Colors</h1>
+  <div class="bg">
+    <div class="color-box" style="background: #3498db;"><span>#3498db</span><p>COPY</p></div>
+    <div class="color-box" style="background: #2980b9;"><span>#2980b9</span><p>COPY</p></div>
+    <div class="color-box" style="background: #9b59b6;"><span>#9b59b6</span><p>COPY</p></div>
+    <div class="color-box" style="background: #8e44ad;"><span>#8e44ad</span><p>COPY</p></div>
+    <div class="color-box" style="background: #34495e;"><span>#34495e</span><p>COPY</p></div>
+    <div class="color-box" style="background: #2c3e50;"><span>#2c3e50</span><p>COPY</p></div>
+    <div class="color-box" style="background: #2ecc71;"><span>#2ecc71</span><p>COPY</p></div>
+    <div class="color-box" style="background: #27ae60;"><span>#27ae60</span><p>COPY</p></div>
+    <div class="color-box" style="background: #1abc9c;"><span>#1abc9c</span><p>COPY</p></div>
+    <div class="color-box" style="background: #16a085;"><span>#16a085</span><p>COPY</p></div>
+    <div class="color-box" style="background: #f1c40f;"><span>#f1c40f</span><p>COPY</p></div>
+    <div class="color-box" style="background: #f39c12;"><span>#f39c12</span><p>COPY</p></div>
+    <div class="color-box" style="background: #e67e22;"><span>#e67e22</span><p>COPY</p></div>
+    <div class="color-box" style="background: #d35400;"><span>#d35400</span><p>COPY</p></div>
+    <div class="color-box" style="background: #e74c3c;"><span>#e74c3c</span><p>COPY</p></div>
+    <div class="color-box" style="background: #c0392b;"><span>#c0392b</span><p>COPY</p></div>
+    <div class="color-box" style="background: #ecf0f1;"><span>#ecf0f1</span><p>COPY</p></div>
+    <div class="color-box" style="background: #bdc3c7;"><span>#bdc3c7</span><p>COPY</p></div>
+    <div class="color-box" style="background: #95a5a6;"><span>#95a5a6</span><p>COPY</p></div>
+    <div class="color-box" style="background: #7f8c8d;"><span>#7f8c8d</span><p>COPY</p></div>
+
+    <div class="color-box" style="background: #f6e58d;"><span>#f6e58d</span><p>COPY</p></div>
+    <div class="color-box" style="background: #f9ca24;"><span>#f9ca24</span><p>COPY</p></div>
+    <div class="color-box" style="background: #ffbe76;"><span>#ffbe76</span><p>COPY</p></div>
+    <div class="color-box" style="background: #f0932b;"><span>#f0932b</span><p>COPY</p></div>
+    <div class="color-box" style="background: #ff7979;"><span>#ff7979</span><p>COPY</p></div>
+    <div class="color-box" style="background: #eb4d4b;"><span>#eb4d4b</span><p>COPY</p></div>
+    <div class="color-box" style="background: #badc58;"><span>#badc58</span><p>COPY</p></div>
+    <div class="color-box" style="background: #6ab04c;"><span>#6ab04c</span><p>COPY</p></div>
+        <div class="color-box" style="background: #dff9fb;"><span>#dff9fb</span><p>COPY</p></div>
+        <div class="color-box" style="background: #c7ecee;"><span>#c7ecee</span><p>COPY</p></div>
+        <div class="color-box" style="background: #7ed6df;"><span>#7ed6df</span><p>COPY</p></div>
+        <div class="color-box" style="background: #e056fd;"><span>#e056fd</span><p>COPY</p></div>
+        <div class="color-box" style="background: #686de0;"><span>#686de0</span><p>COPY</p></div>
+        <div class="color-box" style="background: #30336b;"><span>#30336b</span><p>COPY</p></div>
+        <div class="color-box" style="background: #95afc0;"><span>#95afc0</span><p>COPY</p></div>
+        <div class="color-box" style="background: #22a6b3;"><span>#22a6b3</span><p>COPY</p></div>
+        <div class="color-box" style="background: #be2edd;"><span>#be2edd</span><p>COPY</p></div>
+        <div class="color-box" style="background: #4834d4;"><span>#4834d4</span><p>COPY</p></div>
+        <div class="color-box" style="background: #130f40;"><span>#130f40</span><p>COPY</p></div>
+        <div class="color-box" style="background: #535c68;"><span>#535c68</span><p>COPY</p></div>
+  </div>
+  </div>
+
+        </div>
+    </div>
+</body>
+<script type="text/javascript">
+
+    function insert(num){
+      document.form.textview.value=document.form.textview.value+num;
+    }
+    function equal(){
+      var ins=document.form.textview.value;
+      if(ins){
+      document.form.textview.value=eval(document.form.textview.value);
+    }}
+    function clearnum(){
+      document.form.textview.value="";
+    }
+
+    // app click
+    function calc(){
+        var calculator = document.querySelector(".calculator");
+        var apps = document.querySelector(".apps");
+        calculator.classList.toggle("calhide");
+        apps.classList.toggle("apphide");
+    }
+    function dj(){
+        var apps = document.querySelector(".apps"); 
+      var music = document.querySelector(".music-container");
+      apps.classList.toggle("apphide");
+      music.classList.toggle("musichide");
+    }
+    function todo(){
+        var apps = document.querySelector(".apps"); 
+      var list = document.querySelector(".todolist");
+      apps.classList.toggle("apphide");
+      list.classList.toggle("tohide");
+    }
+    function bg(){
+        var apps = document.querySelector(".apps"); 
+      var color = document.querySelector(".bgcolor");
+      apps.classList.toggle("apphide");
+      color.classList.toggle("bghide");
+    }
+    function home(){
+        var calculator = document.querySelector(".calculator");
+        var apps = document.querySelector(".apps"); 
+      var music = document.querySelector(".music-container");
+      var list = document.querySelector(".todolist");
+      var color = document.querySelector(".bgcolor");
+        calculator.classList.add("calhide");
+        apps.classList.remove("apphide");
+      music.classList.add("musichide");
+      list.classList.add("tohide");
+      color.classList.add("bghide");
+    }
+    // Music Player
+    var play = document.getElementById("play");
+    var music = document.querySelector("audio");
+    var back = document.querySelector("#back");
+    var next = document.querySelector("#next");
+    var artistname = document.querySelector(".artistname");
+    var songname = document.querySelector(".songname");
+    var img = document.querySelector("img");
+
+
+    var isPlaying = false;
+
+    var playMusic = () => {
+        isPlaying = true;
+        music.play();
+        play.classList.replace('fa-play','fa-pause');
+    };
+  
+    var pauseMusic=  () => {
+        isPlaying = false;
+        music.pause();
+        play.classList.replace('fa-pause','fa-play')
+    };
+    play.addEventListener('click', () => {
+        isPlaying ? pauseMusic() : playMusic();
+    });
+
+    const songs= [
+        {
+        name: "Achi-maza-ayi",
+        artist: "Dino James",
+       },
+       {
+        name: "Dooriyan",
+        artist: "Dino James",
+       },
+       {
+        name: "kaaliya",
+        artist: "Dino James",
+       },
+       {
+        name: "LOSER",
+        artist: "Dino James",
+       },
+       {
+        name: "Mirage",
+        artist: "Dino James",
+       },
+       {
+        name: "tandav",
+        artist: "Dino James",
+       },
+       {
+        name: "Wishlist",
+        artist: "Dino James",
+       },
+       {
+        name: "Thanks-a-lot",
+        artist: "Dino James",
+       },
+       {
+        name: "Unstoppable",
+        artist: "Dino James",
+       }
+    ];
+
+    const loadSongs = (songs) => {
+        music.src = songs.name+".mp3";
+        artistname.textContent = songs.artist;
+        songname.textContent = songs.name;
+        img.src = songs.name+".jpg";
+    }
+    songsIndex = 0;
+    // loadSongs(songs[3]);
+
+    const nextSong = () => {
+        songsIndex = (songsIndex + 1)% songs.length;
+        loadSongs(songs[songsIndex]);
+        playMusic();
+    }
+    const backSong = () => {
+        songsIndex = (songsIndex - 1 + songs.length) % songs.length;
+        loadSongs(songs[songsIndex]);
+        playMusic();
+    }
+    next.addEventListener('click',nextSong);
+    back.addEventListener('click',backSong);
+
+    const vol = document.getElementById("range");
+    // music.volume = vol.value;
+    music.addEventListener('timeupdate', () => {
+        let pos = music.currentTime / music.duration;
+        let fill = document.querySelector(".fill");
+        fill.style.width = pos*100 + "%";
+        // console.log(music.duration/60)
+        // document.querySelector("#dura").innerHTML = parseInt(music.duration/60);
+    });
+
+    // To Do List
+    var un = document.getElementById("uncom");
+ 
+ var text = document.getElementById("text");
+ var li = document.getElementsByTagName("li");
+ var h;
+   for(h=0; h < li.length ; h++){
+     var span = document.createElement("i");
+     span.className = "close";
+     li[h].appendChild(span);
+   }
+
+   var close = document.getElementsByClassName("close");
+   var a;
+   for(a=0; a < close.length ; a++){
+     close[a].onclick = function(){
+       var div = this.parentElement;
+       div.style.display ="none";
+     }
+   }
+
+     var list = document.querySelector("#uncom");
+     list.addEventListener('click',function(ev){
+       if(ev.target.tagName ==='LI'){
+         ev.target.classList.toggle('checked');
+         // var li = document.getElementsByTagName("li");
+         // var span = document.createElement("i");
+         // span.className = "close";
+         // li[h].appendChild(span);
+       }
+     },false);
+
+     function ad(){
+       var li = document.createElement("li");
+       var inputValue=document.getElementById("txt").value;
+       var t = document.createTextNode(inputValue);
+       li.appendChild(t);
+       if(inputValue===''){
+         alert("you must write something");
+       }else{
+         document.getElementById("uncom").prepend(li);
+       }
+       document.getElementById("txt").value = "";
+
+       var span = document.createElement("i");
+     span.className = "close";
+       li.appendChild(span);
+
+       for(i=0;i<close.length;i++){
+         close[i].onclick = function(){
+           var div = this.parentElement;
+           div.style.display="none";
+         }
+       }
+     }
+
+
+
+     $(document).ready(function(){
+        $(".bg").click(function(){
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(this).children("p").html()).select();
+            document.execCommand("copy");
+            // alert("Copy : "+ $(this).children("span").html());
+        });
+    });
+    $(document).ready(function(){
+        $(".bg").click(function(){
+            $("input").hide();
+        });
+    });
+
+  </script>
+  <script src="jquery.js"></script>
+</html>

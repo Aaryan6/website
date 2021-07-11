@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Germen UI</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+            text-decoration: none;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            /* grid-template-rows: 59px 59px 59px 59px; */
+            width: 100%;
+            height: 92%;
+            bottom: 0px;
+            left: 0;
+            overflow: hidden;
+            position: absolute;
+        }
+        .color-box{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .color-box:hover p{
+            display: block;
+        }
+        .color-box p{
+            color: #fff;
+            font-size: 16px;
+            border: 2px solid #efefef;
+            border-radius: 5px;
+            padding: 5px 12px;
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+            display: none;
+            position: absolute;
+        }
+        .color-box span{
+            display: none;
+        }
+        input{
+            position: absolute;
+            z-index: -2;
+        }
+        @keyframes size{
+            50%{
+                position: fixed;
+                top: 0;
+                width: 100%;
+                height: 100%;
+                z-index: 22;
+            }
+            100%{
+                position: relative;
+                width:;
+                height:;
+            }
+        }
+        @keyframes show {
+            50%{
+                display: block;
+            }
+            100%{
+                display: none;
+            }
+        }
+        .header{
+            position: fixed;
+            width: 100%;
+            height: 8%;
+            display: flex;
+            align-items: center;
+        }
+        .back-button{
+            font-size: 18px;
+            margin-left: 10px;
+            font-family: Arial, Helvetica, sans-serif;
+            cursor: pointer;
+        }
+        .back-button a{
+            color: #111;
+        }
+    </style>
+</head>
+<body>
+    <div class="main-box">
+        <div class="header">
+            <div class="back-button">
+                <a href="background.html">&#10094 Back</a>
+            </div>
+        </div>
+    <div class="box">
+        <div class="color-box" style="background: #ff9ff3;"><span>#ff9ff3</span><p>COPY</p></div>
+            <div class="color-box" style="background: #feca57;"><span>#feca57</span><p>COPY</p></div>
+            <div class="color-box" style="background: #ff6b6b;"><span>#ff6b6b</span><p>COPY</p></div>
+            <div class="color-box" style="background: #48dbfb;"><span>#48dbfb</span><p>COPY</p></div>
+            <div class="color-box" style="background: #1dd1a1;"><span>#1dd1a1</span><p>COPY</p></div>
+            <div class="color-box" style="background: #f368e0;"><span>#f368e0</span><p>COPY</p></div>
+            <div class="color-box" style="background: #ff9f43;"><span>#ff9f43</span><p>COPY</p></div>
+            <div class="color-box" style="background: #ee5253;"><span>#ee5253</span><p>COPY</p></div>
+            <div class="color-box" style="background: #0abde3;"><span>#0abde3</span><p>COPY</p></div>
+            <div class="color-box" style="background: #10ac84;"><span>#10ac84</span><p>COPY</p></div>
+            <div class="color-box" style="background: #00d2d3;"><span>#00d2d3</span><p>COPY</p></div>
+            <div class="color-box" style="background: #54a0ff;"><span>#54a0ff</span><p>COPY</p></div>
+            <div class="color-box" style="background: #5f27cd;"><span>#5f27cd</span><p>COPY</p></div>
+            <div class="color-box" style="background: #c8d6e5;"><span>#c8d6e5</span><p>COPY</p></div>
+            <div class="color-box" style="background: #576574;"><span>#576574</span><p>COPY</p></div>
+            <div class="color-box" style="background: #01a3a4;"><span>#01a3a4</span><p>COPY</p></div>
+            <div class="color-box" style="background: #2e86de;"><span>#2e86de</span><p>COPY</p></div>
+            <div class="color-box" style="background: #341f97;"><span>#341f97</span><p>COPY</p></div>
+            <div class="color-box" style="background: #8395a7;"><span>#8395a7</span><p>COPY</p></div>
+            <div class="color-box" style="background: #222f3e;"><span>#222f3e</span><p>COPY</p></div>
+    </div>
+    </div>
+</body>
+<script src="jquery.js"></script>
+<script>
+    $(document).ready(function(){
+        $(".color-box").click(function(){
+            var $temp = $("<input>");
+            $("body").append($temp);
+            $temp.val($(this).children("span").html()).select();
+            document.execCommand("copy");
+            // alert("Copy : "+ $(this).children("span").html());
+        });
+    });
+    $(document).ready(function(){
+        $(".color-box").click(function(){
+            $(this).css("animation","size 1s");
+            $("input").hide();
+        });
+    });
+</script>
+</html>

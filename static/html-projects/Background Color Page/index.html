@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background</title>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="fonts.css">
+    <link rel="stylesheet" href="all.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            box-sizing: border-box;
+        }
+        body{
+            background: url("template.jpg");
+            background-position: center;
+        }
+        .main-box{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            margin: 150px 50px 80px;
+            grid-template-columns: auto auto auto;
+        }
+        .box{
+            display: grid;
+            grid-template-columns: auto auto auto auto auto;
+            /* grid-template-rows: 59px 59px 59px 59px; */
+            width: 330px;
+            height: 200px;
+            overflow: hidden;
+            border-radius: 20px;
+            border: 8px solid #efefef;
+            margin: 30px 20px;
+            position: relative;
+        }
+        .box::before{
+            content: '';
+            position: absolute;
+            background: rgba(0,0,0,.2);
+            width: 100%;
+            height: 100%;
+            z-index: 3343;
+        }
+        .box::after{
+            position: absolute;
+            color: #fff;
+            z-index: 3343;
+            font-weight: bold;
+            font-size: 26px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%,-50%);
+            /* text-transform: uppercase; */
+            text-align: center;
+            font-family: 'roboto';
+            letter-spacing: 1px;
+        } 
+        .box1::after{
+            content: 'French UI';
+        }
+        .box2::after{
+            content: 'British UI';
+        }
+        .box3::after{
+            content: 'Indian UI';
+        }
+        .box4::after{
+            content: 'Italian UI';
+        }
+        .box5::after{
+            content: 'Germen UI';
+        }
+        .box6::after{
+            content: 'Canadian UI';
+        }
+        .color-box{
+            /* min-width: 200px; */
+            /* min-height: 17px; */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .header{
+            background: #0984e3;
+            height: 50px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 23232123;
+            box-shadow: 0 1px 10px -2px #000;
+        }
+        .header span{
+            color: #fff;
+            font-size: 20px;
+            font-weight: bold;
+            font-family: 'comfortaa', Arial;
+            margin-left: 30px;
+        }
+        .header p{
+            color: #fff;
+            font-size: 16px;
+            font-weight: bold;
+            font-family: 'comfortaa', Arial;
+            margin-right:30px;
+            background: #0571c0;
+            padding: 8px 15px;
+            border-radius: 5px;
+        }
+        footer{
+            background: #353b48;
+            position: absolute;
+            width: 100%;
+            height: 200px;
+            display: flex;
+            justify-content: space-between;
+        }
+        footer .share{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin: 0px 0 0 20px;
+        }
+        footer .share h3{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: "roboto";
+            color: #f3f3f3;
+        }
+        footer .share span{
+            font-size: 17px;
+            margin: 8px 0;
+            cursor: pointer;
+            color: #efefef;
+        }
+        footer .contact{
+            display: flex;
+            flex-direction: column;
+            margin: 25px 20px 0 0;
+            text-align: right;
+        }
+        footer .contact h3{
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-family: "roboto";
+            color: #f3f3f3;
+        }
+        footer .contact span{
+            font-size: 17px;
+            margin: 8px 0;
+            cursor: pointer;
+            color: #efefef;
+            cursor: pointer;
+        }
+        footer .text{
+            color: #fff;
+            font-size: 17px;
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        footer .text span{
+            color: #ff9453;
+        }
+        @media (max-width: 400px) {
+            .box{
+            margin: 30px 0px;
+        }
+        footer .text{
+            left: 60%;
+        }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <span>Web.Design</span>
+        <p>Flat UI Colors</p>
+    </div>
+    <div class="main-box">
+        <a href="french.html">
+        <div class="box box1">
+            <div class="color-box" style="background: #1abc9c;"></div>
+            <div class="color-box" style="background: #2ecc71;"></div>
+            <div class="color-box" style="background: #3498db;"></div>
+            <div class="color-box" style="background: #9b59b6;"></div>
+            <div class="color-box" style="background: #34495e;"></div>
+            <div class="color-box" style="background: #16a085;"></div>
+            <div class="color-box" style="background: #27ae60;"></div>
+            <div class="color-box" style="background: #2980b9;"></div>
+            <div class="color-box" style="background: #8e44ad;"></div>
+            <div class="color-box" style="background: #2c3e50;"></div>
+            <div class="color-box" style="background: #f1c40f;"></div>
+            <div class="color-box" style="background: #e67e22;"></div>
+            <div class="color-box" style="background: #e74c3c;"></div>
+            <div class="color-box" style="background: #ecf0f1;"></div>
+            <div class="color-box" style="background: #95a5a6;"></div>
+            <div class="color-box" style="background: #f39c12;"></div>
+            <div class="color-box" style="background: #d35400;"></div>
+            <div class="color-box" style="background: #c0392b;"></div>
+            <div class="color-box" style="background: #bdc3c7;"></div>
+            <div class="color-box" style="background: #7f8c8d;"></div>
+        </div>
+        </a>
+        <a href="british.html">
+        <div class="box2 box">
+            <div class="color-box" style="background: #55efc4;"></div>
+            <div class="color-box" style="background: #81ecec;"></div>
+            <div class="color-box" style="background: #74b9ff;"></div>
+            <div class="color-box" style="background: #a29bfe;"></div>
+            <div class="color-box" style="background: #dfe6e9;"></div>
+            <div class="color-box" style="background: #00b894;"></div>
+            <div class="color-box" style="background: #00cec9;"></div>
+            <div class="color-box" style="background: #0984e3;"></div>
+            <div class="color-box" style="background: #6c5ce7;"></div>
+            <div class="color-box" style="background: #b2bec3;"></div>
+            <div class="color-box" style="background: #ffeaa7;"></div>
+            <div class="color-box" style="background: #fab1a0;"></div>
+            <div class="color-box" style="background: #ff7675;"></div>
+            <div class="color-box" style="background: #fd79a8;"></div>
+            <div class="color-box" style="background: #636e72;"></div>
+            <div class="color-box" style="background: #fdcb6e;"></div>
+            <div class="color-box" style="background: #e17055;"></div>
+            <div class="color-box" style="background: #d63031;"></div>
+            <div class="color-box" style="background: #e84393;"></div>
+            <div class="color-box" style="background: #2d3436;"></div>
+        </div>
+        </a>
+        <a href="indian.html">
+        <div class="box3 box">
+            <div class="color-box" style="background: #f6e58d;"></div>
+            <div class="color-box" style="background: #ffbe76;"></div>
+            <div class="color-box" style="background: #ff7979;"></div>
+            <div class="color-box" style="background: #badc58;"></div>
+            <div class="color-box" style="background: #dff9fb;"></div>
+            <div class="color-box" style="background: #f9ca24;"></div>
+            <div class="color-box" style="background: #f0932b;"></div>
+            <div class="color-box" style="background: #eb4d4b;"></div>
+            <div class="color-box" style="background: #6ab04c;"></div>
+            <div class="color-box" style="background: #c7ecee;"></div>
+            <div class="color-box" style="background: #7ed6df;"></div>
+            <div class="color-box" style="background: #e056fd;"></div>
+            <div class="color-box" style="background: #686de0;"></div>
+            <div class="color-box" style="background: #30336b;"></div>
+            <div class="color-box" style="background: #95afc0;"></div>
+            <div class="color-box" style="background: #22a6b3;"></div>
+            <div class="color-box" style="background: #be2edd;"></div>
+            <div class="color-box" style="background: #4834d4;"></div>
+            <div class="color-box" style="background: #130f40;"></div>
+            <div class="color-box" style="background: #535c68;"></div>
+        </div>
+        </a>
+        <a href="italian.html">
+        <div class="box4 box">
+            <div class="color-box" style="background: #00a8ff;"></div>
+            <div class="color-box" style="background: #9c88ff;"></div>
+            <div class="color-box" style="background: #fbc531;"></div>
+            <div class="color-box" style="background: #4cd137;"></div>
+            <div class="color-box" style="background: #487eb0;"></div>
+            <div class="color-box" style="background: #0097e6;"></div>
+            <div class="color-box" style="background: #8c7ae6;"></div>
+            <div class="color-box" style="background: #e1b12c;"></div>
+            <div class="color-box" style="background: #44bd32;"></div>
+            <div class="color-box" style="background: #40739e;"></div>
+            <div class="color-box" style="background: #e84118;"></div>
+            <div class="color-box" style="background: #f5f6fa;"></div>
+            <div class="color-box" style="background: #7f8fa6;"></div>
+            <div class="color-box" style="background: #273c75;"></div>
+            <div class="color-box" style="background: #353b48;"></div>
+            <div class="color-box" style="background: #c23616;"></div>
+            <div class="color-box" style="background: #dcdde1;"></div>
+            <div class="color-box" style="background: #718093;"></div>
+            <div class="color-box" style="background: #192a56;"></div>
+            <div class="color-box" style="background: #2f3640;"></div>
+        </div>
+        </a>
+        <a href="germen.html">
+        <div class="box5 box">
+            <div class="color-box" style="background: #ff9ff3;"></div>
+            <div class="color-box" style="background: #feca57;"></div>
+            <div class="color-box" style="background: #ff6b6b;"></div>
+            <div class="color-box" style="background: #48dbfb;"></div>
+            <div class="color-box" style="background: #1dd1a1;"></div>
+            <div class="color-box" style="background: #f368e0;"></div>
+            <div class="color-box" style="background: #ff9f43;"></div>
+            <div class="color-box" style="background: #ee5253;"></div>
+            <div class="color-box" style="background: #0abde3;"></div>
+            <div class="color-box" style="background: #10ac84;"></div>
+            <div class="color-box" style="background: #00d2d3;"></div>
+            <div class="color-box" style="background: #54a0ff;"></div>
+            <div class="color-box" style="background: #5f27cd;"></div>
+            <div class="color-box" style="background: #c8d6e5;"></div>
+            <div class="color-box" style="background: #576574;"></div>
+            <div class="color-box" style="background: #01a3a4;"></div>
+            <div class="color-box" style="background: #2e86de;"></div>
+            <div class="color-box" style="background: #341f97;"></div>
+            <div class="color-box" style="background: #8395a7;"></div>
+            <div class="color-box" style="background: #222f3e;"></div>
+        </div>
+        </a>
+        <a href="canadian.html">
+        <div class="box6 box">
+            <div class="color-box" style="background: #fc5c65;"></div>
+            <div class="color-box" style="background: #fd9644;"></div>
+            <div class="color-box" style="background: #fed330;"></div>
+            <div class="color-box" style="background: #26de81;"></div>
+            <div class="color-box" style="background: #2bcbba;"></div>
+            <div class="color-box" style="background: #eb3b5a;"></div>
+            <div class="color-box" style="background: #fa8231;"></div>
+            <div class="color-box" style="background: #f7b731;"></div>
+            <div class="color-box" style="background: #20bf6b;"></div>
+            <div class="color-box" style="background: #0fb9b1;"></div>
+            <div class="color-box" style="background: #45aaf2;"></div>
+            <div class="color-box" style="background: #4b7bec;"></div>
+            <div class="color-box" style="background: #a55eea;"></div>
+            <div class="color-box" style="background: #d1d8e0;"></div>
+            <div class="color-box" style="background: #778ca3;"></div>
+            <div class="color-box" style="background: #2d98da;"></div>
+            <div class="color-box" style="background: #3867d6;"></div>
+            <div class="color-box" style="background: #8854d0;"></div>
+            <div class="color-box" style="background: #a5b1c2;"></div>
+            <div class="color-box" style="background: #4b6584;"></div>
+        </div>
+        </a>
+    </div>
+    <footer>
+        <div class="share">
+            <h3>Follow Me</h3>
+            <span>Instagram</span>
+            <span>Youtube</span>
+            <span>Telegram</span>
+        </div>
+        <div class="text">Powered by <span>@webcoder</span></div>
+        <div class="contact">
+            <h3>Contact Me</h3>
+            <span>thecoder2003@gmail.com</span>
+            <span>+917648875411</span>
+        </div>
+    </footer>
+</body>
+<script src="jquery.js"></script>
+<script>
+   
+</script>
+</html>

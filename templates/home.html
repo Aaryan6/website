@@ -1,0 +1,303 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} CodewithAaryan {% endblock title %}
+
+{% block style %}
+    body{
+        width: 100%;
+    }
+    .masthead {
+        background-image: url("{% static 'images/home-bg.jpg' %}");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: cover;
+        text-align: center;
+        height: 500px;
+        margin-right: 0;
+        margin-left: 0;
+    }
+    .site-heading {
+        color: #444;
+    }
+    .site-heading h1{
+        color: ;
+        font-weight: bold;
+        font-size: 50px;
+        margin-bottom: 15px;
+    }
+    .my-image{
+        width: 320px;
+        height: 400px;
+        overflow: hidden;
+        background: url("{% static 'images/profile-image.jpg' %}");
+        background-position: center;
+        border-radius: 50px;
+    }
+    .contact-cont{
+        background: #111;
+        min-height: 500px;
+    }
+    .contact-cont h1{
+        color: #ffffff;
+    }
+    .form label{
+        color: #ffffff;
+    }
+    @media screen and (max-width: 450px) {
+        body{
+            width: fit-content;
+        }
+    .site-heading h1{
+        font-weight: bold;
+        font-size: 40px;
+        margin-bottom: 15px;
+    }
+}
+
+{% endblock style %}
+
+{% block body %}
+
+
+    <header class="row justify-content-center align-items-center masthead " id="home">
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center align-items-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="col site-heading">
+                        <h1>CodewithAaryan</h1>
+                        <span class="subheading">&ldquo; Any fool can write code that a computer can understand. Good
+                            programmers write code that humans can understand &ldquo;</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+     <!-- About -->
+    
+     <div id="about" class="text-center my-5">
+        <h1>About Me</h1>
+    </div>
+
+    <!-- profile -->
+
+    <div class="container my-5 py-5">
+        <div class="row justify-content-around">
+        <div class="col-lg-6 col-md-6 row align-items-center float-left">
+            <div class="about-text mx-5">
+                <div class="about-head">
+                <h4>Aaryan Patel</h4>
+                </div>
+                <div class="about-para">
+                    <p>Hello friends, I am Aaryan Patel and i am 17 years old. I like coding and programming, front end and back end both. I want to be a Full Stack Developer. I am in 15 years old when i learn my first language HTML and after 3-4 months i learn second language CSS and JS, And after learning i start a channel on youtube the name WEBCODER. And Now i learn Python and it's module like Pygame - that makes game, Flask - that makes website's backend and Django - that also makes website's backend. And this is my personal website.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-6 col-md-6 my-5 float-right">
+            <div class="col mx-auto">
+            <div class="my-image mx-auto">
+            </div>
+        </div>
+        </div>
+    </div>
+    </div>
+
+    <!-- skills -->
+    <div id="skills" class="container my-5">
+        <div class="container my-5">
+            <h3 class="my-5">My Skills</h3>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">HTML</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="85" aria-valuemin="0" aria-valuemax="100" style="width: 80%">80%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">CSS</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 70%">70%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">Javascript</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:30%">30%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">Python</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:50%">50%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">Flask</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:15%">15%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">Django</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%">40%</div>
+                </div>
+            </div>
+            <div class="pro-bar row">
+                <div class="label col-md-2 my-1"><label for="">Pygame</label></div>
+                <div class="progress col-md-10">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar"
+                        aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width:40%">40%</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- recommanded options -->
+
+    <div id="projects" class="projects-section text-center my-5 pt-4">
+        <h1>My Projects</h1>
+    </div>
+    <div class="container py-3">
+    
+        <section class="module pt-4 text-center">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-4 col-md-6 my-4">
+                        <div class="icon-box px-3">
+                            <div class="icon-box-icon"><img src="{% static 'images/html-logo.png' %}" width="70px" height="70px"
+                                    class="my-4" alt=""></div>
+                            <div class="icon-box-title">
+                                <h6>HTML Projects</h6>
+                            </div>
+                            <div class="icon-box-content">
+                                <p>I have a lot of front end languages like HTML, CSS and JavaScript Projects. Click the
+                                    button to see</p>
+                            </div>
+                            <a href="htmlpage" class="btn btn-outline-primary" role="button"
+                                data-bs-toggle="button">Click me</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-4">
+                        <div class="icon-box px-3">
+                            <div class="icon-box-icon"><img src="{% static 'images/python-logo.png' %}" width="70px" height="70px"
+                                    class="my-4" alt=""></div>
+                            <div class="icon-box-title">
+                                <h6>Python Projects</h6>
+                            </div>
+                            <div class="icon-box-content">
+                                <p>Python language is amazing and it's Projects is very intresting. Click the button to
+                                    see</p>
+                            </div>
+                            <a href="pythonpage" class="btn btn-outline-primary" role="button"
+                                data-bs-toggle="button">Click me</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-4">
+                        <div class="icon-box px-4">
+                            <div class="icon-box-icon pt-3"><img src="{% static 'images/youtube-logo.png' %}" width="75px" height="50px"
+                                    class="my-4" alt=""></div>
+                            <div class="icon-box-title">
+                                <h6>My Channel</h6>
+                            </div>
+                            <div class="icon-box-content">
+                                <p>I have a Channel on Youtube, here i upload my projects videos. Click the button to
+                                    see</p>
+                            </div>
+                            <a href="https://www.youtube.com/channel/UC0NXl9KXOz5Uss__QP_Lhog"
+                                class="btn btn-outline-primary" role="button" data-bs-toggle="button">Click me</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-4">
+                        <div class="icon-box px-4">
+                            <div class="icon-box-icon pt-3"><img src="{% static 'images/pygame-logo.png' %}" width="130px"
+                                    height="60px" class="my-3" alt=""></div>
+                            <div class="icon-box-title">
+                                <h6>Pygame Projects</h6>
+                            </div>
+                            <div class="icon-box-content">
+                                <p>Pygame is a module in Python, Pygame makes Game for windows app. Click the button to
+                                    see</p>
+                            </div>
+                            <a href="pygamepage" class="btn btn-outline-primary" role="button"
+                                data-bs-toggle="button">Click me</a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-6 my-4">
+                        <div class="icon-box px-4">
+                            <div class="icon-box-icon pt-3"><img src="{% static 'images/video-logo.svg' %}" width="75px" height="50px"
+                                    class="my-4" alt=""></div>
+                            <div class="icon-box-title">
+                                <h6>My Videos</h6>
+                            </div>
+                            <div class="icon-box-content">
+                                <p>I have a Channel on Youtube, here i upload my projects videos. Click the button to
+                                    see</p>
+                            </div>
+                            <a href="videospage" class="btn btn-outline-primary" role="button"
+                                data-bs-toggle="button">Click me</a>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </div>
+
+
+    <!-- contact form -->
+
+    <div id="contact" class="container-fluid contact-cont mt-5">
+        <div class="contact-head pt-5 my-5 text-center">
+            <h1>Contact Me</h1>
+        </div>
+        <div class="form container">
+            <form action="">
+            <div class="row">
+            <div class="mb-3 col-lg-6 col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="YourName">
+              </div>
+              <div class="mb-3 col-lg-6 col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Email Address</label>
+                <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="Enter your email address">
+              </div>
+              </div>
+              <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Message</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">Type a message...</textarea>
+              </div>
+              <div class="">
+                <button type="submit" class="btn btn-primary mb-3">Submit</button>
+              </div>
+
+        </div>
+    </form>
+    </div>
+
+<footer class="footer stickey-bottom mt-auto py-2">
+        <div class="container col-lg-6 col-md-6">
+            <div class="icons row justify-content-center">
+                <a href="" class="mx-4">
+                    <i class="bi-github" style="font-size: 2rem; color: #fff;"></i>
+                </a>
+                <a href="" class="mx-4">
+                    <i class="bi-youtube" style="font-size: 2rem; color: #fff;"></i>
+                </a>
+                <a href="" class="mx-4">
+                    <i class="bi-instagram" style="font-size: 2rem; color: #fff;"></i>
+                </a>
+            </div>
+            <div class="txt row justify-content-center my-1">
+                <a href="" style="color: #fff;">Powerded by <b> Aaryan Patel</b></a>
+            </div>
+        </div>
+      </footer>
+      {% endblock body %}

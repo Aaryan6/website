@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% block title %}Python projects{% endblock title %}
+{% block style %}
+  .card{
+    max-width: 320px;
+  }
+{% endblock style %}
+
+{% block body %}
+
+  <div class="container">
+    <div class="heading mt-5 text-center">
+      <h2>PYTHON PROJECTS</h2>
+    </div>
+  </div>
+  <div class="container mt-5">
+    <div class="row">
+  {% for code in code %}
+      <div class="col-lg-4 col-md-6 section-code my-4">
+        <div class="card mx-auto" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{code.title}}</h5>
+            <p class="card-text">{{code.subtitle}}</p>
+            <a href="python_cheatsheet/{{code.code_id}}" class="btn btn-primary">Source Code &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      {% endfor %}
+      
+    
+</div>
+  </div>
+
+{% endblock body %}

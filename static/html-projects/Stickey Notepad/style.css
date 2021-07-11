@@ -1,0 +1,66 @@
+    body{
+      margin: 0;
+      padding: 0;
+      background:#344457 ;
+    }
+      .note{
+        position: absolute;
+        background:#312c33;
+        width: 300px;
+        height: 50px;
+        top: 30%;
+        left: 50%;
+        transform: translate(-50%,-50%);
+      }
+      .text{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 300px;
+        height:0px;/*200px*/
+        overflow:hidden;
+        outline: none;
+        border: none;
+        transition: .5s all;
+      }
+      textarea{
+        position: relative;
+        min-width: 300px;
+        height: 200px;
+        background:#fff;
+        color: #000;
+        font-size: 20px;
+        font-family: arial;
+        outline: none;
+        letter-spacing: 1px;
+      }
+      h1{
+        position: absolute;
+        color: #fff;
+        font-family:Forte;
+        top: -15px;
+        left: 5px;
+      }
+      .fa-times{
+        position: absolute;
+        top:24%;
+        left: 88%;
+        font-size:25px;
+        transform: rotate(45deg);
+        color: #fff;
+        transition: .5s all;
+      }
+      #a{
+        position: absolute;
+        width: 50px;
+        height: 40px;
+        opacity: 0;
+        right: 0px;
+        z-index: 1;
+      }
+      #a:checked ~ i{
+        transform: rotate(270deg);
+      }
+      #a:checked ~ .text{
+        height: 200px;
+      }
