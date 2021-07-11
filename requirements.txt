@@ -39,7 +39,6 @@ pygame==2.0.1
 pyinstaller==4.3
 pyinstaller-hooks-contrib==2021.1
 PyMySQL==1.0.2
-pypiwin32==223
 PyQRCode==1.2.1
 pyttsx3==2.90
 pytube==10.8.2
