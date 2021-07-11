@@ -58,4 +58,3 @@ urllib3==1.26.4
 Werkzeug==2.0.1
 whitenoise==5.2.0
 wikipedia==1.4.0
-zipp==3.4.1
